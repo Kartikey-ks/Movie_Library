@@ -1,9 +1,9 @@
 import MovieCards from "../components/MovieCards";
 import { useState } from "react";
-import { searchMovies } from "../services/api.js"; // Adjust this import path as needed
+import { searchMovies } from "../services/api.js";
 
 function Home() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("John Wick");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -12,13 +12,9 @@ function Home() {
     if (!searchQuery.trim()) return;
 
     setLoading(true);
-    try {
       const results = await searchMovies(searchQuery);
       setMovies(results);
-    } catch (error) {
-      console.error("Search failed:", error);
-      setMovies([]);
-    }
+
     setLoading(false);
   };
 
@@ -32,12 +28,12 @@ function Home() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="submit" className="search-button bg-blue-600 text-white px-4 py-2 rounded-md">
+        <button type="submit" className="search-button bg-[#0170db] text-white px-4 py-2 rounded-md">
           Search
         </button>
       </form>
 
-      {loading && <p className="text-center text-white">Loading...</p>}
+      {loading && <p className="text-center text-black">Loading...</p>}
 
       <div className="movies-grid flex flex-wrap justify-center gap-6">
         {movies.length > 0 ? (
@@ -45,7 +41,7 @@ function Home() {
             <MovieCards movie={movie} key={movie.imdbID} />
           ))
         ) : (
-          !loading && <p className="text-white text-center">No movies found</p>
+          !loading && <p className="text-black text-center">No movies found</p>
         )}
       </div>
     </div>
