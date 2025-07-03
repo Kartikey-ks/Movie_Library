@@ -8,6 +8,7 @@ function NavBar() {
                 <Link to="/home" className="nav-link">Home</Link>
                 <Link to="/favourites" className="nav-link">Favourites</Link>
             </div>
+            <Link to="/register" className='text-white bg-[#0170db] p-2 rounded-xl'>Login/Register</Link>
         </nav>
     )
 }
