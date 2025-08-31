@@ -1,0 +1,12 @@
+.ellipse-shadow {
+  width: 160vw;
+  height: 1000px;
+  border-radius: 50%;
+            /* Using radial-gradient directly for the background to get the color and inner fade */
+  background: radial-gradient(circle at center, #000000 0%, #000000 80%); 
+            
+            /* The key to the organic, soft edge */
+  filter: blur(50px); /* Adjust this value for more or less softness */
+  opacity: 0.8; /* Slightly reduce opacity for a softer blend */
+  transform: scale(1.05); /* Slightly scale it up to account for blur shrinking */
+}
